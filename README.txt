@@ -6,5 +6,10 @@ scrap: failed attempts at scraping, but data is data, could still be useful
 fox_news_articles: successful scrapes from the py files in the src folder
 
 TODO:
-- look at why some articles aren't getting scraped
-- scrape dates along with the articles
+- graph dates + covid article sentiment Analysis
+- dates with welfare articles sentiment analysis
+- get up and running with adroit bc this cpu run time is getting ridiculous
+- make a research informed model looking for frames using different words
+instead of sentiment analysis
+- see how the two compare
+- write the fucking paper
