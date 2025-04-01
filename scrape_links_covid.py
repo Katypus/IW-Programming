@@ -3,7 +3,7 @@ import json
 from bs4 import BeautifulSoup
 
 # Read URLs from a file
-with open("fox_news_articles/covid_fox_links.txt", "r") as f:
+with open("fox_news_articles/welfare_fox_broad.txt", "r") as f:
     urls = [line.strip() for line in f.readlines()]
 
 data = []
@@ -37,7 +37,7 @@ for url in urls:
         print(f"Error processing {url}: {e}")
 
 # Save to JSON
-with open("articles.json", "w", encoding="utf-8") as f:
+with open("welfare_articles.json", "w", encoding="utf-8") as f:
     json.dump(data, f, indent=4)
 
-print("Scraping complete. Saved as articles.json")
+print("Scraping complete. Saved as welfare_articles.json")
