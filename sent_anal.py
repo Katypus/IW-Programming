@@ -1,5 +1,7 @@
 import requests
 import pandas as pd
+import nltk
+import torch
 
 from bs4 import BeautifulSoup
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
@@ -16,7 +18,10 @@ data = []
 
 for url in urls:
     try:
-        response = requests.get(url, headers={"User-Agent": "Mozilla/5.0"})
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+        }
+        response = requests.get(url, headers=headers)
         soup = BeautifulSoup(response.text, "html.parser")
         # Load the emotion analysis model
         emotion_analyzer = pipeline("text-classification", model="joeddav/distilbert-base-uncased-go-emotions-student", top_k=None)

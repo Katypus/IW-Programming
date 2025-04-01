@@ -2,7 +2,6 @@ import requests
 import pandas as pd
 import nltk
 import torch
-
 from bs4 import BeautifulSoup
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from transformers import pipeline
