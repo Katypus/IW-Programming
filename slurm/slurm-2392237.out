@@ -1,0 +1,13 @@
+
+EnvironmentNameNotFound: Could not find conda environment: sentiment
+You can list all discoverable environments with `conda info --envs`.
+
+
+Traceback (most recent call last):
+  File "/home/kr5379/IW-Programming-1/sent_anal_gen.py", line 3, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+Traceback (most recent call last):
+  File "/home/kr5379/IW-Programming-1/sent_anal_gen.py", line 3, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'

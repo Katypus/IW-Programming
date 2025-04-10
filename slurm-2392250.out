@@ -1,6 +1,0 @@
-Device set to use cuda:0
-/home/kr5379/.conda/envs/sentiment/lib/python3.13/site-packages/transformers/pipelines/text_classification.py:106: UserWarning: `return_all_scores` is now deprecated,  if want a similar functionality use `top_k=None` instead of `return_all_scores=True` or `top_k=1` instead of `return_all_scores=False`.
-  warnings.warn(
-{'text': "\n            Games\n          \n        This material may not be published, broadcast, rewritten, or redistributed. ©2025 FOX News Network, LLC. All rights reserved. Quotes displayed in real-time or delayed by at least 15 minutes. Market data provided by Factset. Powered and implemented by FactSet Digital Solutions. Legal Statement. Mutual Fund and ETF data provided by Refinitiv Lipper.\n       Fox News Flash top headlines are here. Check out what's clicking on Foxnews.com. The White House has issued a memo th"}
-Device set to use cuda:0
-slurmstepd: error: *** JOB 2392250 ON adroit-h11g3 CANCELLED AT 2025-04-06T11:57:28 DUE TO TIME LIMIT ***
