@@ -5,12 +5,10 @@ import re
 import sys
 import json
 junk_phrases = [
-    "Fox News Flash headlines",
-    "Get the Fox News app",
-    "This material may not be published",
-    "© 20",  # catches things like "© 2020 Fox News"
+    "Legal Statement. Mutual Fund and ETF data provided by"
 ]
 
+# Remove lines that contain junk phrases
 def remove_junk_lines(text):
     lines = text.splitlines()
     clean_lines = [
@@ -19,24 +17,33 @@ def remove_junk_lines(text):
     ]
     return "\n".join(clean_lines).strip()
 
-def clean_article(text):
-    # Remove everything before the main body (Main body begins after "Check out what's clicking on Foxnews.com")
-    text = re.sub(r"^.*?(Check out what's clicking on Foxnews.com\s+[\w\d ,:]+)?", "", text, flags=re.DOTALL)
+# Remove duplicate paragraphs
+def remove_duplicate_paragraphs(text):
+    paragraphs = text.split("\n")
+    seen = set()
+    unique_paragraphs = []
+    for para in paragraphs:
+        stripped = para.strip()
+        if stripped and stripped not in seen:
+            unique_paragraphs.append(stripped)
+            seen.add(stripped)
+    return "\n".join(unique_paragraphs)
 
-    # Remove footers/copyrights/menu junk
-    text = re.sub(r"(©|\(c\)|Copyright).*", "", text, flags=re.IGNORECASE)
-
-    return text.strip()
-
+# clean function
 def fully_clean(text):
-    text = clean_article(text)
     text = remove_junk_lines(text)
+    text = remove_duplicate_paragraphs(text)
     return text
 
+# open JSON
 with open(sys.argv[1], 'r', encoding='utf-8', errors='ignore') as f:
     data = json.load(f)
-cleaned = [fully_clean(article["text"]) for article in data if "text" in article]
-json_cleaned = json.dumps(cleaned, indent=4)
+
+# clean each text field
+for article in data:
+    if "text" in article:
+        article["text"] = fully_clean(article["text"])
+# save as json
 with open(sys.argv[1][:-5] + "_cleaned.json", 'w') as f:
-    f.write(json_cleaned)
+    json.dump(data, f, indent=4)
 print(f"Cleaned {len(data)} articles and saved to {sys.argv[1][:-5]}_cleaned.json")
