@@ -1,0 +1,4 @@
+Device set to use cuda:0
+{'text': "\n            Games\n          \n        This material may not be published, broadcast, rewritten, or redistributed. ©2025 FOX News Network, LLC. All rights reserved. Quotes displayed in real-time or delayed by at least 15 minutes. Market data provided by Factset. Powered and implemented by FactSet Digital Solutions. Legal Statement. Mutual Fund and ETF data provided by Refinitiv Lipper.\n       Fox News Flash top headlines are here. Check out what's clicking on Foxnews.com. The White House has issued a memo th"}
+Device set to use cuda:0
+slurmstepd: error: *** JOB 2392251 ON adroit-h11g3 CANCELLED AT 2025-04-06T14:36:57 DUE TO TIME LIMIT ***
